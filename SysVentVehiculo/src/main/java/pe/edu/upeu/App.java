@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.kordamp.bootstrapfx.BootstrapFX;
 
 /**
  * Hello world!
@@ -19,6 +20,7 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loand=new FXMLLoader(getClass().getResource("/view/maingui.fxml"));
         Scene scene=new Scene(loand.load(), 400, 600);
+        scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         stage.setScene(scene);
         stage.show();
     }

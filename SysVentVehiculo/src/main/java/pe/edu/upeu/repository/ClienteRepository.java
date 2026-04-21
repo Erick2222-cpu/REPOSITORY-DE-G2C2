@@ -29,4 +29,8 @@ public class ClienteRepository {
     public void delete(int index){
          clientes.remove(index);
     }
+    public void CargarDatos(){
+         clientes.add(new Cliente("61158799","Anthony Erick","987590865","ccosisucapucaanthony@gmail.com"));
+        clientes.add(new Cliente("61158798","Khaelriz","997590865","khaelriz43@gmail.com"));
+    }
 }
