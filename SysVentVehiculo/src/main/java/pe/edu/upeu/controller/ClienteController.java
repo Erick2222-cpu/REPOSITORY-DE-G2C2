@@ -33,13 +33,57 @@ public class ClienteController {
         definirClumnas();
         listar();
         agregarEventoSeleccion();
+        desacActBotton(true);
         btnEliminar.setOnAction(e->{
             if (index != -1) {
                 cs.delete(index);
                 listar();
                 limpiarForm();
+                desacActBotton(true);
             }
         });
+        btnLimpiar.setOnAction(e->{
+            limpiarForm();
+        });
+        btnGuardar.setOnAction(e->{
+            guardarCliente();
+        });
+        btnActualizar.setOnAction(e->{
+            if (index!=-1){
+                guardarCliente();
+            }
+        });
+            if (index!=-1){
+                guardarCliente();
+                desacActBotton(true);
+            }
+
+
+
+    }
+    void desacActBotton(boolean valor){
+        btnActualizar.setDisable(valor);
+        btnEliminar.setDisable(valor);
+    }
+
+
+
+    void guardarCliente(){
+
+            Cliente c=new Cliente();
+            c.setIdDni(txtDni.getText());
+            c.setNombre(txtNombre.getText());
+            c.setTelefono(txtTelefono.getText());
+            c.setEmail(txtEmail.getText());
+            if(index==-1){
+                cs.save(c);
+                limpiarForm();
+            }else{
+                cs.update(c,index);
+                limpiarForm();
+                index=-1;
+            }
+            listar();
 
     }
 
@@ -48,6 +92,10 @@ public class ClienteController {
         txtNombre.setText("");
         txtTelefono.setText("");
         txtEmail.setText("");
+        index=-1;
+        regClienteTabala.getSelectionModel().clearSelection();
+        desacActBotton(false);
+        btnGuardar.setDisable(false);
     }
     public void definirClumnas() {
         colDni=new TableColumn<>("DNI");
@@ -75,6 +123,8 @@ public class ClienteController {
                 txtNombre.setText(newValue.getNombre());
                 txtTelefono.setText(newValue.getTelefono());
                 txtEmail.setText(newValue.getEmail());
+                desacActBotton(false);
+                btnGuardar.setDisable(true);
 
 
                 }
