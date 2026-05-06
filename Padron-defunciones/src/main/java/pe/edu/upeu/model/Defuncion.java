@@ -1,7 +1,21 @@
 package pe.edu.upeu.model;
+
+
 import java.time.LocalDate;
 
-public class Defuncion {
+class Persona {
+    protected String nombre;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+}
+
+public class Defuncion extends Persona {
     private String nombreFallecido;
     private LocalDate fechaDefuncion;
     private String lugarDefuncion;
@@ -12,7 +26,7 @@ public class Defuncion {
     public Defuncion(String nombreFallecido, LocalDate fechaDefuncion,
                      String lugarDefuncion, String causaMuerte,
                      String nombreFamiliar, String parentesco) {
-        this.nombreFallecido = nombreFallecido;
+        this.nombreFallecido = nombreFallecido;//herencia
         this.fechaDefuncion = fechaDefuncion;
         this.lugarDefuncion = lugarDefuncion;
         this.causaMuerte = causaMuerte;
@@ -26,4 +40,12 @@ public class Defuncion {
     public String getCausaMuerte() { return causaMuerte; }
     public String getNombreFamiliar() { return nombreFamiliar; }
     public String getParentesco() { return parentesco; }
+
+    public void setNombreFallecido(String nombre) {
+        this.nombreFallecido = nombre;
+    }
+    public class Persona {
+        protected String nombre;
+    }
+
 }

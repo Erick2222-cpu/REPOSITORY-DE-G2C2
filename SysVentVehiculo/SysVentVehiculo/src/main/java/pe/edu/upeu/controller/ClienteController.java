@@ -25,7 +25,8 @@ public class ClienteController {
 
     private TableColumn<Cliente, String> colDni, colNombre, colTelefono, colEmail;
     ObservableList<Cliente> clientes;
-    int index=-1;
+    //int index=-1;
+    String dni="";
     ClienteService cs=ClienteServiceImp.getInstance();
 
     @FXML
@@ -35,8 +36,8 @@ public class ClienteController {
         agregarEventoSeleccion();
         desacActBotton(true);
         btnEliminar.setOnAction(e->{
-            if (index != -1) {
-                cs.delete(index);
+            if (!dni.equals("")) {
+                cs.delete(dni);
                 listar();
                 limpiarForm();
                 desacActBotton(true);
@@ -49,14 +50,12 @@ public class ClienteController {
             guardarCliente();
         });
         btnActualizar.setOnAction(e->{
-            if (index!=-1){
-                guardarCliente();
-            }
-        });
-            if (index!=-1){
+            if (!dni.equals("")){
                 guardarCliente();
                 desacActBotton(true);
             }
+        });
+
 
 
 
@@ -75,13 +74,14 @@ public class ClienteController {
             c.setNombre(txtNombre.getText());
             c.setTelefono(txtTelefono.getText());
             c.setEmail(txtEmail.getText());
-            if(index==-1){
+            if(!dni.equals("")){
                 cs.save(c);
                 limpiarForm();
-            }else{
-                cs.update(c,index);
+            }
+            else{
+                cs.update(c,dni);
                 limpiarForm();
-                index=-1;
+                dni="";
             }
             listar();
 
@@ -92,7 +92,7 @@ public class ClienteController {
         txtNombre.setText("");
         txtTelefono.setText("");
         txtEmail.setText("");
-        index=-1;
+        dni="";
         regClienteTabala.getSelectionModel().clearSelection();
         desacActBotton(false);
         btnGuardar.setDisable(false);
@@ -118,7 +118,7 @@ public class ClienteController {
     private void agregarEventoSeleccion(){
         regClienteTabala.getSelectionModel().selectedItemProperty().addListener((observable, oldValue,newValue)->{
                 if(newValue!=null){
-                    index=regClienteTabala.getItems().indexOf(newValue);
+                    dni=newValue.getIdDni();
                 txtDni.setText(newValue.getIdDni());
                 txtNombre.setText(newValue.getNombre());
                 txtTelefono.setText(newValue.getTelefono());

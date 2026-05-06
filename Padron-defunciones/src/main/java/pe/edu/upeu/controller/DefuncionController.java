@@ -1,8 +1,12 @@
 package pe.edu.upeu.controller;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import pe.edu.upeu.model.Defuncion;
 import pe.edu.upeu.repository.DefuncionRepository;
+
+import java.time.LocalDate;
 
 public class DefuncionController {
 
@@ -14,7 +18,7 @@ public class DefuncionController {
     @FXML private TextField txtParentesco;
     @FXML private ListView<String> listView;
 
-    private DefuncionRepository repo = new DefuncionRepository();
+
     private int index = -1;
 
     @FXML
@@ -92,5 +96,20 @@ public class DefuncionController {
         txtFamiliar.clear();
         txtParentesco.clear();
     }
+
+
+
+    private DefuncionRepository repo = new DefuncionRepository();
+
+    @FXML
+    public void initialize() {
+        listar();
+
+
+
+
+    }
+
+
 
 }

@@ -1,61 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="pe.edu.upeu.controller.DefuncionController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.controller.DefuncionController">
+
+
+    <children>
+
     <!-- Título -->
-    <Label text="Padrón de Defunciones"
-           layoutX="180" layoutY="10"
-           style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <Label layoutX="180" layoutY="10" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Padrón de Defunciones" />
 
     <!-- Campos -->
-    <TextField fx:id="txtNombre"
-               promptText="Nombre del fallecido"
-               layoutX="50" layoutY="60" prefWidth="200"/>
+    <TextField fx:id="txtNombre" layoutX="50" layoutY="60" prefWidth="200" promptText="Nombre del fallecido" />
 
-    <DatePicker fx:id="dpFecha"
-                layoutX="300" layoutY="60" prefWidth="200"/>
+    <DatePicker fx:id="dpFecha" layoutX="300" layoutY="60" prefWidth="200" />
 
-    <TextField fx:id="txtLugar"
-               promptText="Lugar de defunción"
-               layoutX="50" layoutY="110" prefWidth="200"/>
+    <TextField fx:id="txtLugar" layoutX="50" layoutY="110" prefWidth="200" promptText="Lugar de defunción" />
 
-    <TextField fx:id="txtCausa"
-               promptText="Causa de muerte"
-               layoutX="300" layoutY="110" prefWidth="200"/>
+    <TextField fx:id="txtCausa" layoutX="300" layoutY="110" prefWidth="200" promptText="Causa de muerte" />
 
-    <TextField fx:id="txtFamiliar"
-               promptText="Nombre del familiar"
-               layoutX="50" layoutY="160" prefWidth="200"/>
-    <TextField fx:id="txtParentesco"
-               promptText="Parentesco"
-               layoutX="300" layoutY="160" prefWidth="200"/>
+    <TextField fx:id="txtFamiliar" layoutX="50" layoutY="160" prefWidth="200" promptText="Nombre del familiar" />
+    <TextField fx:id="txtParentesco" layoutX="300" layoutY="160" prefWidth="200" promptText="Parentesco" />
 
     <!-- Botones -->
-    <Button text="Guardar"
-            layoutX="100" layoutY="210"
-            onAction="#guardar"/>
+    <Button layoutX="100" layoutY="210" onAction="#guardar" text="Guardar" />
 
-    <Button text="Actualizar"
-            layoutX="240" layoutY="210"
-            onAction="#actualizar"/>
+    <Button layoutX="240" layoutY="210" onAction="#actualizar" text="Actualizar" />
 
-    <Button text="Eliminar"
-            layoutX="400" layoutY="210"
-            onAction="#eliminar"/>
+    <Button layoutX="400" layoutY="210" onAction="#eliminar" text="Eliminar" />
 
     <!-- Lista -->
-    <ListView fx:id="listView"
-              layoutX="50" layoutY="260"
-              prefWidth="450" prefHeight="150"
-              onMouseClicked="#seleccionar"/>
+    <ListView fx:id="listView" layoutX="50" layoutY="260" onMouseClicked="#seleccionar" prefHeight="150" prefWidth="450" />
+
+
+
+
+
+
+
+    </children>
+
+
+
+
+
+
 
 </AnchorPane>
-

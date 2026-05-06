@@ -5,15 +5,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.kordamp.bootstrapfx.BootstrapFX;
+import pe.edu.upeu.config.ConexionSQLITE;
 
 /**
  * Hello world!
  *
  */
 public class App extends Application {
-    public static void main( String[] args )
-    {
-       launch(args);
+    public static void main( String[] args ) {
+        ConexionSQLITE con=new ConexionSQLITE();
+        con.conectar();
+
+        launch(args);
     }
 
     @Override

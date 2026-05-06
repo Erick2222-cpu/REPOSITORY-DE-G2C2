@@ -27,20 +27,20 @@ public class ClienteServiceImp  implements ClienteService {
     @Override
     public List<Cliente> finAll() {
         if (cr.finALL().isEmpty()){
-                cr.CargarDatos();
+                cr.finALL();
         }
         return cr.finALL();
     }
 
     @Override
-    public void update(Cliente c, int index) {
-        cr.update(c, index);
+    public void update(Cliente c, String dni) {
+        cr.update(c, dni);
 
     }
 
     @Override
-    public void delete(int index) {
-        cr.delete(index);
+    public void delete(String dni) {
+        cr.delete(dni);
 
     }
 }
