@@ -20,6 +20,8 @@ public class DefuncionController {
 
 
     private int index = -1;
+    private int idSeleccionado = -1;
+    private String id;
 
     @FXML
     public void guardar() {
@@ -40,6 +42,7 @@ public class DefuncionController {
         repo.guardar(d);
         listar();
         limpiar();
+        System.out.println("Guardado ejecutado");
     }
 
     @FXML
@@ -55,6 +58,7 @@ public class DefuncionController {
         index = listView.getSelectionModel().getSelectedIndex();
         if (index >= 0) {
             Defuncion d = repo.listar().get(index);
+            idSeleccionado = d.hashCode();
 
             txtNombre.setText(d.getNombreFallecido());
             dpFecha.setValue(d.getFechaDefuncion());
@@ -67,8 +71,8 @@ public class DefuncionController {
 
     @FXML
     public void actualizar() {
-        if (index >= 0) {
-            repo.actualizar(index, new Defuncion(
+        if (idSeleccionado != -1) {
+            repo.actualizar(idSeleccionado, new Defuncion(
                     txtNombre.getText(),
                     dpFecha.getValue(),
                     txtLugar.getText(),
@@ -78,14 +82,17 @@ public class DefuncionController {
             ));
             listar();
         }
+
+
     }
 
     @FXML
     public void eliminar() {
-        if (index >= 0) {
-            repo.eliminar(index);
+        if (idSeleccionado != -1) {
+            repo.eliminar(idSeleccionado);
             listar();
         }
+
     }
 
     public void limpiar() {
@@ -103,11 +110,12 @@ public class DefuncionController {
 
     @FXML
     public void initialize() {
-        listar();
+        listar()
 
 
 
 
+;
     }
 
 

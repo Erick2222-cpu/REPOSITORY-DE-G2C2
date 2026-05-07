@@ -5,11 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.kordamp.bootstrapfx.BootstrapFX;
+import pe.edu.upeu.config.CrearTabla;
 
 public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
+        CrearTabla.crearTabla();
 
         FXMLLoader load = new FXMLLoader(
                 getClass().getResource("/View/main.fxml")
