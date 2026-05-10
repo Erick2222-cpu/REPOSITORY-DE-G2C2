@@ -1,0 +1,3 @@
+2026-05-10 18:20:03.172185-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DIFUNCION" not found (candidates are: "difuncion"); SQL statement:
+SELECT difuncion_.`id`,difuncion_.`nombre_fallecido`,difuncion_.`fecha_defuncion`,difuncion_.`lugar_defuncion`,difuncion_.`causa_muerte`,difuncion_.`nombre_familiar`,difuncion_.`parentesco` FROM `difuncion` difuncion_ [42103-232]

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="pe.edu.upeu.controller.DifuncionController">
+
+    <children>
+
+        <Label layoutX="180" layoutY="10"
+               style="-fx-font-size: 18px; -fx-font-weight: bold;"
+               text="Padrón de Difunciones" />
+
+        <!-- 🔥 CAMPOS CORRECTOS (MISMO NOMBRE QUE CONTROLLER) -->
+        <TextField fx:id="txtnombreFallecido" layoutX="50" layoutY="60" prefWidth="200" />
+        <TextField fx:id="txtfechaDifuncion" layoutX="300" layoutY="60" prefWidth="200" />
+
+        <TextField fx:id="txtlugarDefuncion" layoutX="50" layoutY="110" prefWidth="200" />
+        <TextField fx:id="txtcausaMuerte" layoutX="300" layoutY="110" prefWidth="200" />
+
+        <TextField fx:id="txtnombreFamiliar" layoutX="50" layoutY="160" prefWidth="200" />
+        <TextField fx:id="txtparentesco" layoutX="300" layoutY="160" prefWidth="200" />
+
+        <!-- BOTONES (te faltaba fx:id si los usas en controller) -->
+        <Button fx:id="btnGuardar" layoutX="100" layoutY="210" text="Guardar" />
+        <Button fx:id="btnActualizar" layoutX="240" layoutY="210" text="Actualizar" />
+        <Button fx:id="btnEliminar" layoutX="400" layoutY="210" text="Eliminar" />
+
+        <!-- TABLE -->
+
+        <TableView fx:id="regDifuncionTabla"
+                   layoutX="50" layoutY="260"
+                   prefHeight="150" prefWidth="450">
+
+            <columns>
+
+                <TableColumn fx:id="colnombreFallecido" text="Fallecido"/>
+                <TableColumn fx:id="colfechaDifuncion" text="Fecha"/>
+                <TableColumn fx:id="colcausaMuerte" text="Causa"/>
+                <TableColumn fx:id="collugarDefuncion" text="Lugar"/>
+                <TableColumn fx:id="colnombreFamiliar" text="Familiar"/>
+                <TableColumn fx:id="colparentesco" text="Parentesco"/>
+
+            </columns>
+
+        </TableView>
+
+    </children>
+
+</AnchorPane>
